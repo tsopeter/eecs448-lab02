@@ -106,14 +106,15 @@ bool LinkedList<T>::removeBack()
 			isRemoved = removeFront();
 		}
 		else{
-			lastNode = secondintoLast = m_front;
+			lastNode = m_front;
+			secondintoLast = m_front;
 			while(lastNode->getNext() != nullptr){
 				lastNode = lastNode->getNext();
-				if((secondintoLast->getNext()) != nullptr){
+				if((secondintoLast->getNext())->getNext() != nullptr){
 					secondintoLast = secondintoLast->getNext();
 				}
 			}
-			secondintoLast->setNext(lastNode->getNext());
+			secondintoLast->setNext(nullptr);
 			delete lastNode;
 			isRemoved = true;
 		}
